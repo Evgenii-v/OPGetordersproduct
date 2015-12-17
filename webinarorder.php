@@ -3,18 +3,18 @@ class ControllerAccountWebinarorder extends Controller {
 	private $error = array();
 	
 		public function info() {
-		$this->load->language('account/webinarorders');
+		$this->load->language('account/webinarorder');
 
 		if (!$this->customer->isLogged()) {
-			$this->session->data['redirect'] = $this->url->link('account/webinar', 'order_id=' . $order_id, 'SSL');
+			$this->session->data['redirect'] = $this->url->link('account/webinarorder','SSL');
 
 			$this->response->redirect($this->url->link('account/login', '', 'SSL'));
 		}
 
 		$this->load->model('account/webinarorders');
 
-	
-	  $data = array('prodtype' => 1);
+	$data['products'] = array();
+	 $data = array('prodtype' => 1);
         $results =  $this->model_account_webinarorders->getProducts($data);
         echo '<pre>'; print_r($results); die;
         
