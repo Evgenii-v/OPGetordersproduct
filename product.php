@@ -95,7 +95,7 @@ class ModelCatalogProduct extends Model {
         if(isset($data['product_type']) && $data['product_type'])
         {
             $order_ids = $this->getOrdersByCustomer();
-            $sql .= " AND op.order_id IN(". $order_ids .")";
+            $sql .= " AND p.prodtype = 1 AND op.order_id IN(". $order_ids .")";
         }
 
 
