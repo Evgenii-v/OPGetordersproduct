@@ -96,7 +96,11 @@ class ControllerAccountWebinarorder extends Controller {
 			}
 	
 	
-	
+	  $data = array(
+            'product_type' => 1
+        );
+        $results =  $this->model_catalog_product->getProducts($data);
+        echo '<pre>'; print_r($results); die;
 	
 		$data['column_left'] = $this->load->controller('common/column_left');
 			$data['column_right'] = $this->load->controller('common/column_right');
