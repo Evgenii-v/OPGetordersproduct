@@ -105,10 +105,10 @@ class ControllerAccountWebinarorder extends Controller {
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 
-			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/account/webinar_info.tpl')) {
-				$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/account/webinar_info.tpl', $data));
+			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/account/webinarorder.tpl')) {
+				$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/account/webinarorder.tpl', $data));
 			} else {
-				$this->response->setOutput($this->load->view('default/template/account/webinar_info.tpl', $data));
+				$this->response->setOutput($this->load->view('default/template/account/webinarorder.tpl', $data));
 			}
 		} else {
 			$this->document->setTitle($this->language->get('text_order'));
