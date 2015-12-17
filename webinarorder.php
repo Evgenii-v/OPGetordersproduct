@@ -14,9 +14,7 @@ class ControllerAccountWebinarorder extends Controller {
 		$this->load->model('account/webinarorders');
 
 	
-	  $data = array(
-            'product_type' => 1
-        );
+	  $data = array('prodtype' => 1);
         $results =  $this->model_account_webinarorders->getProducts($data);
         echo '<pre>'; print_r($results); die;
         
@@ -92,29 +90,7 @@ class ControllerAccountWebinarorder extends Controller {
 
 			$data['button_continue'] = $this->language->get('button_continue');
 
-			$data['breadcrumbs'] = array();
-
-			$data['breadcrumbs'][] = array(
-				'text' => $this->language->get('text_home'),
-				'href' => $this->url->link('common/home')
-			);
-
-			$data['breadcrumbs'][] = array(
-				'text' => $this->language->get('text_account'),
-				'href' => $this->url->link('account/account', '', 'SSL')
-			);
-
-			$data['breadcrumbs'][] = array(
-				'text' => $this->language->get('heading_title'),
-				'href' => $this->url->link('account/webinar', '', 'SSL')
-			);
-
-			$data['breadcrumbs'][] = array(
-				'text' => $this->language->get('text_order'),
-				'href' => $this->url->link('account/webinar/info', 'order_id=' . $order_id, 'SSL')
-			);
-
-			$data['continue'] = $this->url->link('account/webinar', '', 'SSL');
+			$data['continue'] = $this->url->link('account/account', '', 'SSL');
 
 			$data['column_left'] = $this->load->controller('common/column_left');
 			$data['column_right'] = $this->load->controller('common/column_right');
