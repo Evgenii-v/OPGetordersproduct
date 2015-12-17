@@ -73,7 +73,7 @@ class ControllerAccountWebinarOrder extends Model {
          * перевіряємо чи є тип
          * УВАГА якщо передати 0 то вибере всі
          */
-        if(isset($data['product_type']) && $data['product_type'])
+        if(isset($data['prodtype']) && $data['prodtype'])
         {
             $sql .= " LEFT JOIN " . DB_PREFIX . "order_product op  ON (p.product_id = op.product_id)";
         }
@@ -81,7 +81,7 @@ class ControllerAccountWebinarOrder extends Model {
         /**
          * додаємо умову шукати тільки ті продукти  вяких є відповідні order IDs
          */
-        if(isset($data['product_type']) && $data['product_type'])
+        if(isset($data['prodtype']) && $data['prodtype'])
         {
             $order_ids = $this->getOrdersByCustomer();
             $sql .= " AND op.order_id IN(". $order_ids .")";
